@@ -30,7 +30,7 @@ class OAuthServiceProvider extends ServiceProvider {
   {
     $this->app['oauth'] = $this->app->share(function($app)
     {
-      return new ServiceFactory;
+      return new OAuth;
     });
   }
 
