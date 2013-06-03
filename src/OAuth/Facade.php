@@ -1,4 +1,4 @@
-<?php namespace Oauth;
+<?php namespace OAuth;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 
