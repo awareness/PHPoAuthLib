@@ -1,7 +1,7 @@
 <?php namespace OAuth;
 
 use Config;
-use OAuth\Common\Consumer;
+use OAuth\Common\Consumer\Credentials;
 
 class OAuth {
 
@@ -20,7 +20,7 @@ class OAuth {
 
   public function getCredentials($name, $creds=null) {
     $creds = $creds ?: Config::get("oauth.$name");
-    return new Consumer(
+    return new Credentials(
       $creds['id'],
       $creds['secret'],
       $creds['callback_url']
