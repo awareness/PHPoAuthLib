@@ -1,7 +1,7 @@
 <?php namespace OAuth;
 
 use Config;
-use Common\Consumer;
+use OAuth\Common\Consumer;
 
 class OAuth {
 
