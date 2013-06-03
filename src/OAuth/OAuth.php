@@ -2,6 +2,7 @@
 
 use Config;
 use OAuth\Common\Consumer\Credentials;
+use OAuth\Common\Storage\Session;
 
 class OAuth {
 
@@ -15,7 +16,11 @@ class OAuth {
   }
 
   public function createService($name, $creds=null) {
-    return $this->getServiceFactory()->createService($name, $this->getCredentials($name, $creds));
+    return $this->getServiceFactory()->createService(
+      $name,
+      $this->getCredentials($name, $creds),
+      new Session()
+    );
   }
 
   public function getCredentials($name, $creds=null) {
