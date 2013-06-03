@@ -1,5 +1,6 @@
 <?php namespace OAuth;
 
+use Config;
 use Common\Consumer;
 
 class OAuth {
@@ -13,12 +14,12 @@ class OAuth {
     return static::$service_factory;
   }
 
-  public function createService($name) {
-    return $this->getServiceFactory()->createService($name, $this->getCredentials($name));
+  public function createService($name, $creds=null) {
+    return $this->getServiceFactory()->createService($name, $this->getCredentials($name, $creds));
   }
 
-  public function getCredentials($name) {
-    $creds = Config::get("oauth.$name");
+  public function getCredentials($name, $creds=null) {
+    $creds = $creds ?: Config::get("oauth.$name");
     return new Consumer(
       $creds['id'],
       $creds['secret'],
